@@ -29,7 +29,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="usuario.aspx">Regresar</a>
+                    <a class="nav-link" href="usuario.aspx">Registrar CLiente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="usuario.aspx">Movimiento CLiente</a>
                 </li>
             </ul>
         </div>
@@ -37,7 +40,6 @@
     <div class="container-fluid">
         <div class="row mt-4">
             <div class="col">
-                <form method="POST" id="formu">
                     <div class="row p-1">
                         <div class="col-12 text-center">
                             <h2>lista de usuarios</h2>
@@ -45,11 +47,10 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Escriba el nombre a buscar</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Escirbir nombre">
+                            <label for="inputEmail4">Buscar Cliente</label>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Escirbir No. Documento">
                         </div>
                     </div>
-                </form>
             </div>
         </div>
         <div class="row">
@@ -57,14 +58,14 @@
                 <table class="table text-center">
                     <thead>
                         <tr>
-                            <th scope="col">P. nombre</th>
-                            <th scope="col">S. Nombre</th>
-                            <th scope="col">P. Apellido</th>
-                            <th scope="col">S. Apellido</th>
+                            <th scope="col"># Dcto</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Direccion</th>
                             <th scope="col">Celular</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Ciudad</th>
                             <th scope="col">No Cuenta</th>
+                            <th scope="col">Fecha</th>
                             <th scope="col">Saldo</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">ACCION</th>
@@ -75,36 +76,55 @@
                     </tbody>
                 </table>
                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalScrollableTitle">Editar producto</h5>
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Editar Cliente</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="POST" id="formuproducto">
+                                <form method="POST" id="formueditar">
                                     <div class="form-row justify-content-center">
-                                        <div class="form-group col-md-6" >
-                                            <label for="inputEmail4">Nombres y apellidos</label>
-                                            <input type="text" class="form-control" name="id" id="id">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Nombres y apellidos</label>
-                                            <input type="text" class="form-control" name="name" id="name">
-                                        </div>
-                                        <div class="form-group col-md-6" id="nombres">
-                                            <label for="inputEmail4">Fecha Nacimiento</label>
-                                            <input type="date" class="form-control" name="fechnac" id="fechnac">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="sexo">Sexo</label>
-                                            <select id="sexo" name="sexo" class="form-control">
-                                                <option value="" selected>Seleccione el Sexo</option>
-                                                <option value="M">Masculino</option>
-                                                <option value="F">Femenino</option>
-                                            </select>
+                                        <div class="form-row justify-content-center">
+                                            <div class="form-group col-md-4">
+                                                <label for="inputEmail4">No Documento</label>
+                                                <input type="number" class="form-control" name="nodocumento" id="nodocumento" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputEmail4">Primer Nombre</label>
+                                                <input type="text" class="form-control" name="firstnombre" id="firstnombre" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputEmail4">Segundo Nombre</label>
+                                                <input type="text" class="form-control" name="secondnombre" id="secondnombre" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputEmail4">Primer Nombre</label>
+                                                <input type="text" class="form-control" name="firstpostnombre" id="firstpostnombre" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputEmail4">Segundo Nombre</label>
+                                                <input type="text" class="form-control" name="secondpostnombre" id="secondpostnombre" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Direccion</label>
+                                                <input type="text" class="form-control" name="addre" id="addre" required>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Ciudad</label>
+                                                <input type="text" class="form-control" name="ciudad" id="ciudad" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Telefono</label>
+                                                <input type="text" class="form-control" name="celular" id="celular" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Correo Electronico</label>
+                                                <input type="email" class="form-control" name="correo" id="correo" required>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center mb-3">
